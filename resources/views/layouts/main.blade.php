@@ -15,7 +15,7 @@
     </header>
     @yield('content')
     <footer>
-  &#xA9; Copyright Week-03, 2026 your_name's Books Store.
+  &#xA9; Copyright Week-03, 2026 Jasmine's Books Store.
 </footer>
 </body>
 </html>

@@ -24,13 +24,27 @@ margin-left: auto;
          alt="Picture of {{ $product['name'] }}"
          class="app-cl-product-image">
     </div>
-<dl>
+    
+    <dl>
         <dt>Code</dt>
-            <dd><em>{{$product['code']}}</em></dd>
+        <dd><em>{{$product['code']}}</em></dd>
+        
         <dt>Category</dt>
-         <dd><em style="color:blue">{{$product['catCode']}}</em></dd>
-         <dt>Name</dt>
-            <dd><em>{{$product['name']}}</em></dd>
-</dl>
+        <dd>
+            @php
+                // ดึงชื่อหมวดหมู่จริง (เช่น PHP, JavaScript) มาจากคลาส CategoryController
+                $catName = App\Http\Controllers\CategoryController::CATEGORIES[$product['catCode']]['name'] ?? $product['catCode'];
+            @endphp
+            <a href="{{ route('categories.view', ['category' => $product['catCode']]) }}" style="color: blue;">
+                <em>{{ $catName }}</em>
+            </a>
+        </dd>
+        
+        <dt>Name</dt>
+        <dd><em>{{$product['name']}}</em></dd>
+    </dl> <pre>
+{{ $product['description'] }}
+</pre>
+
 </main>
 @endsection

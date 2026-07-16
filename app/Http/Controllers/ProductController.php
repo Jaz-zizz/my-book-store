@@ -6,7 +6,7 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
-    const array PRODUCTS = [
+    const PRODUCTS = [
         'BK001' => [
             'code' => 'BK001',
             'catCode' => 'CT001',
