@@ -42,8 +42,7 @@ class CategoryController extends Controller
         // 1. ดึงข้อมูลหมวดหมู่ปัจจุบันที่เลือก
         $category = self::CATEGORIES[$categoryCode] ?? null;
 
-        // 2. กรองสินค้าจาก ProductController ที่มี catCode ตรงกับหมวดหมู่นี้
-        // อ้างอิงถึง ProductController::PRODUCTS ข้ามคลาสตามที่แลปแนะนำ
+     
         $filteredProducts = array_filter(ProductController::PRODUCTS, function ($product) use ($categoryCode) {
             return $product['catCode'] === $categoryCode;
         });

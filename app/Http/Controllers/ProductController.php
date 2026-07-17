@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\View\View;
+use App\Http\Controllers\CategoryController;
 
 class ProductController extends Controller
 {

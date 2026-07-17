@@ -1,33 +1,19 @@
-@extends('layouts.main')
-@section('title', $product['name'])
+@extends('layouts.main', [
+    'title' => $product['name'],
+])
+
 @section('content')
-<style>
-dl {
-display: grid;
-grid-template-columns: auto 1fr;
-}
-dt {
-display: flex;
-flex-direction: row;
-font-weight: bold;
-}
-dt::after {
-content: '::';
-padding-left: 1ch;
-padding-right: 1ch;
-margin-left: auto;
-}
-</style>
-<main>
+
+<main id="app-main-content">
     <div>
        <img src="{{ asset("images/products/{$product['code']}.jpg") }}"
          alt="Picture of {{ $product['name'] }}"
          class="app-cl-product-image">
     </div>
     
-    <dl>
+    <dl class="app-cmp-data-detail">
         <dt>Code</dt>
-        <dd><em>{{$product['code']}}</em></dd>
+        <dd class="app-cl-product"><em>{{$product['code']}}</em></dd>
         
         <dt>Category</dt>
         <dd>
@@ -35,7 +21,7 @@ margin-left: auto;
                 // ดึงชื่อหมวดหมู่จริง (เช่น PHP, JavaScript) มาจากคลาส CategoryController
                 $catName = App\Http\Controllers\CategoryController::CATEGORIES[$product['catCode']]['name'] ?? $product['catCode'];
             @endphp
-            <a href="{{ route('categories.view', ['category' => $product['catCode']]) }}" style="color: blue;">
+            <a class="app-cl-category" href="{{ route('categories.view', ['category' => $product['catCode']]) }}">
                 <em>{{ $catName }}</em>
             </a>
         </dd>
